@@ -12,7 +12,7 @@ public class LogicsAndNumbersStuff {
     public int diffMultipliedByC(int a, int b, int c)
     {
         //TODO Delete line below, and implement this method
-        return (a - b) * c;
+        throw new UnsupportedOperationException();
     }
 
     /**
