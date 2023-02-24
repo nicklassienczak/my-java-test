@@ -1,6 +1,10 @@
 package assignment3;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class Team {
    private ArrayList<TeamMember> members = new ArrayList<>();
@@ -11,8 +15,7 @@ public class Team {
      * Adds a teammember to the instance field members
      */
     public void addTeamMember(TeamMember m) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        members.add(m);
     }
     
     // Nothing to do here!
@@ -31,8 +34,7 @@ public class Team {
      * @return if a TeamMember was removed
      */
     public boolean removeTeamMember(TeamMember m){
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        return members.remove(m);
     }
 
     /**
@@ -46,18 +48,23 @@ public class Team {
      */
     
     public int getNextId() {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        return 0;
     }
 
     /**
-     * 
+     *
      * @param role, a String representing the role of the TeamMember
      * @return an ArrayList of all TeamMember that has the specified role
      */
     public ArrayList<TeamMember> retriveMembersByRole(String role) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        ArrayList<TeamMember> membersWithRole = new ArrayList<>();
+        for (TeamMember member:
+             members) {
+            if (member.getRole().equals(role)) {
+                membersWithRole.add(member);
+            }
+        }
+        return membersWithRole;
     }
 
     /**
@@ -65,8 +72,13 @@ public class Team {
      * * This is hard. Skip this for now if you don't know how to do it
      */
     public void sortByNameAsc() {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        Comparator<TeamMember> nameSort = new Comparator<TeamMember>() {
+            @Override
+            public int compare(TeamMember o1, TeamMember o2) {
+                return o1.getName().compareToIgnoreCase(o2.getName());
+            }
+        };
+        Collections.sort(members, nameSort);
     }
 
     /**

@@ -1,5 +1,7 @@
 package assignment4;
 
+import java.util.Arrays;
+
 public class Student
 {
 
@@ -33,8 +35,12 @@ public class Student
      */
     public Student(int studentId, String name)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        setName(name);
+        setStudentId(studentId);
+
+        setGrade(0);
+        setMultiplier(1.06);
+
     }
 
 
@@ -44,8 +50,7 @@ public class Student
      */
     public double getMultiplier()
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+       return multiplier;
     }
 
 
@@ -60,8 +65,17 @@ public class Student
      */
     public boolean setMultiplier(double multiplier)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        if (multiplier == 1.1448) {
+            this.multiplier = multiplier;
+            return true;
+        } if (multiplier == 1.08) {
+            this.multiplier = multiplier;
+            return true;
+        } if (multiplier == 1.06) {
+            this.multiplier = multiplier;
+            return true;
+        }
+        return false;
     }
 
 
@@ -71,8 +85,7 @@ public class Student
      */
     public double getComputedGrade()
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        return (getGrade() * getMultiplier());
     }
 
 
@@ -86,8 +99,14 @@ public class Student
      */
     public boolean setGrade(int grade)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+
+        int[] validValues = {-3, 0, 2, 4, 7, 10, 12};
+        if (Arrays.stream(validValues).anyMatch(g -> g == grade)) {
+            this.grade = grade;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -96,8 +115,7 @@ public class Student
      */
     public int getGrade()
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        return grade;
     }
 
 
@@ -107,8 +125,7 @@ public class Student
      */
     public String getName()
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+       return name;
     }
 
 
@@ -123,8 +140,21 @@ public class Student
      */
     public boolean setName(String name)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        if (name == null || name.isEmpty()) {
+            return false;
+        }
+        String[] words = name.split(" ");
+        if (words.length < 2) {
+            return false;
+        }
+
+        for (String word : words) {
+            if (word.matches(".*[./\\\\,()&%€#!$].*")) {
+                return false;
+            }
+        }
+        this.name = name;
+        return true;
     }
 
 
@@ -134,8 +164,7 @@ public class Student
      */
     public int getStudentId()
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        return studentId;
     }
 
 
@@ -148,8 +177,11 @@ public class Student
      */
     public boolean setStudentId(int studentId)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        if (studentId > -1) {
+            this.studentId = studentId;
+            return true;
+        }
+        return false;
     }
 
 }

@@ -1,5 +1,7 @@
 package assignment1;
 
+import java.util.Arrays;
+
 public class LogicsAndNumbersStuff {
 
     /**
@@ -11,8 +13,9 @@ public class LogicsAndNumbersStuff {
      */
     public int diffMultipliedByC(int a, int b, int c)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+       int diffAB = (a - b);
+        return (diffAB * c);
+
     }
 
     /**
@@ -23,8 +26,10 @@ public class LogicsAndNumbersStuff {
      */
     public boolean canYouStayInBed(boolean weekday, boolean vacation)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        if (weekday == true && vacation == false) {
+            return false;
+        }
+        else return true;
     }
 
     /**
@@ -34,8 +39,9 @@ public class LogicsAndNumbersStuff {
      */
     public int sumOfNumbers(int[] numbers)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+       int sum = Arrays.stream(numbers).sum();
+       return sum;
+
     }
 
     /**
@@ -45,8 +51,9 @@ public class LogicsAndNumbersStuff {
      */
     public double averageOfNumber(int[] numbers)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        int sum = Arrays.stream(numbers).sum();
+        int avg = (sum / numbers.length);
+        return avg;
     }
 
     /**
@@ -59,8 +66,22 @@ public class LogicsAndNumbersStuff {
      */
     public int numberWithMostOccurrences(int[] numbers)
     {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        int maxCount = 0;
+        int maxValue = Integer.MIN_VALUE;
+        for (int i = 0; i < numbers.length; i++) {
+            int count = 0;
+
+            for (int j = 0; j < numbers.length; j++) {
+                if (numbers[i] == numbers[j]) {
+                    count++;
+                }
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                maxValue = numbers[i];
+            }
+        }
+        return maxValue;
     }
 
 }

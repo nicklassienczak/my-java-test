@@ -9,8 +9,7 @@ public class StringHandler {
      * Case insensitive.
      */
     public String stringManipulation(String str) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+       return str.replace("c", "s");
     }
 
     /**
@@ -21,8 +20,12 @@ public class StringHandler {
      * 
      */
     public int stringLength(String str) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        if (str == null) {
+            return 0;
+        }
+        else {
+            return str.length();
+        }
     }
 
     /**
@@ -32,8 +35,11 @@ public class StringHandler {
      * e.g. if arr is ["hi","hello","hej"] the method should return 10
      */
     public int stringArrayLength(String[] arr) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        int totalLength = 0;
+        for (int i = 0; i < arr.length; i++) {
+            totalLength += arr[i].length();
+        }
+        return totalLength;
     }
 
     /**
@@ -43,8 +49,9 @@ public class StringHandler {
      * e.g. "Hello" -> "olleH"
      */
     public String stringReverse(String str) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+       StringBuilder sb = new StringBuilder(str);
+       sb.reverse();
+       return sb.toString();
     }
 
     /**
@@ -56,8 +63,15 @@ public class StringHandler {
      * e.g. parameters: "Change comes through passion", 'g' should return 2
      */
     public int charCount(String str, char c) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        int charCount = 0;
+        String strUp = str.toLowerCase();
+        char charC = Character.toLowerCase(c);
+        for (int i = 0; i < strUp.length(); i++) {
+            if (strUp.charAt(i) == charC) {
+                charCount++;
+            }
+        }
+        return charCount;
     }
 
     /**
@@ -69,8 +83,8 @@ public class StringHandler {
      * @return The string created using the given parameters.
      */
     public String stringOfChars(int amount, char c) {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        String charAmount = Character.toString(c);
+        return charAmount.repeat(amount);
     }
 
 
