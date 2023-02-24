@@ -87,8 +87,13 @@ public class Team {
      * * This is hard. Skip this for now if you don't know how to do it
      */
     public void sortByRoleDesc() {
-        //TODO Delete line below, and implement this method
-        throw new UnsupportedOperationException();
+        Comparator<TeamMember> roleSort = new Comparator<TeamMember>() {
+            @Override
+            public int compare(TeamMember o1, TeamMember o2) {
+                return o2.getRole().compareToIgnoreCase(o1.getRole());
+            }
+        };
+        Collections.sort(members, roleSort);
     }
     
 }
